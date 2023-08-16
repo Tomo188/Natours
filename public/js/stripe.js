@@ -5,7 +5,7 @@ const stripe= Stripe("pk_test_51Lien1KB5WheeZRmhicbupZ0PrOgX5uzwVeTCwITOoGeLz9GJ
 export const bookTour=async tourID=>{
     try{
         const session=await axios({
-          url:"http://localhost:3000/api/v1/bookings/checkout-session"+"/"+tourID
+          url:"/api/v1/bookings/checkout-session"+"/"+tourID
        })
        window.location.replace(session.data.session.url)
     }catch(err){
