@@ -12,7 +12,7 @@ export const signUp=async function(name,email,password){
     if(resp.data.status==="success")
     {
         showAlert('success', 'you loged in successfully');
-        await login(email,password)
+        login(email,password)
     window.setTimeout(() => {
       location.assign('/');
     }, 1500);

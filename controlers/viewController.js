@@ -21,7 +21,6 @@ exports.getTour = catchAsync(async (req, resp, next) => {
   resp.set(
     
   )
-  console.log(tour.reviews)
   sendResponseRender(resp, 'tour', {
     title:`${tour.name} Tour`,
     tour
@@ -50,7 +49,7 @@ exports.login=catchAsync(async (req, resp, next) => {
     title:"login in your account"
   })
 })
-exports.account=catchAsync((req,resp,next)=>{
+exports.account=catchAsync(async(req,resp,next)=>{
   sendResponseRender(resp,"account",{
     title:"account"
   })

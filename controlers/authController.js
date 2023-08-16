@@ -53,7 +53,6 @@ exports.logout=(req,resp)=>{
   deleteCoockie(req,resp)
 }
 exports.protect = catchAsync(async (req, resp, next) => {
-  
   let token;
   if (
     req.headers.authorization &&
