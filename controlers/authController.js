@@ -20,7 +20,6 @@ exports.signup = catchAsync(async (req, resp, next) => {
     photo:userData.photo?userData.photo:"default.jpg"
   });
   const url=`${req.protocol}://${req.get("host")}/account`
-  console.log("create user")
   // await new Email(newUser,url).sendWelcome()
   const token = signToken(newUser._id);
   sendResponse(req, resp, 201, {
