@@ -12,9 +12,9 @@ export const signUp=async function(name,email,password){
     if(resp.data.status==="success")
     {
         showAlert('success', 'you loged in successfully');
-        login(email,password)
+        
     window.setTimeout(() => {
-      location.assign('/');
+      location.assign('/login');
     }, 1500);
 }
    }
