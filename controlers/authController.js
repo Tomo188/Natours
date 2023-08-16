@@ -24,7 +24,7 @@ exports.signup = catchAsync(async (req, resp, next) => {
   await new Email(newUser,url).sendWelcome()
   const token = signToken(newUser._id);
   sendResponse(req, resp, 201, {
-    status: 'sucess',
+    status: 'success',
     token,
     data: {
       user: newUser,

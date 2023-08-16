@@ -1,8 +1,11 @@
 "use strict"
 import {login,logOut} from "./login"
+import {signUp} from "./signUp"
 import { updateAccount } from "./updateSettings"
 import { bookTour } from "./stripe"
+
 const form=document.querySelector(".form--login")
+const formSignup=document.querySelector(".form--sign-up")
 const logOutBtn=document.querySelector(".nav__el--logout")
 const  userDataForm=document.querySelector(".form-user-data")
 const newPasswordData=document.querySelector(".form-user-password")
@@ -15,6 +18,15 @@ form.addEventListener("submit",function(e){
     console.log("try to login")
     login(email,password)
 })
+}
+if(formSignup){
+    formSignup.addEventListener("submit",function(e){
+        e.preventDefault()
+        const name=document.getElementById("name").value
+        const email=document.getElementById("email").value
+        const password=document.getElementById("password").value
+        signUp(name,email,password)
+    })
 }
 if(logOutBtn){
     logOutBtn.addEventListener("click",logOut)
