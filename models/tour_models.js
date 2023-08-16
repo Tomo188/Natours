@@ -154,10 +154,9 @@ const tourSchema=new mongoose.Schema(
   //   this.pipeline().unshift({$match:{secretTour:{$ne:true}}})
   //   next()
   // })
-  tourSchema.post( /^find/,function(docs,next){
-
-    next()
-  })
+  // tourSchema.post( /^find/,function(docs,next){
+  //   next()
+  // })
   // tourSchema.pre("save",function(next){
   //   next()
   // })

@@ -10,6 +10,7 @@ const mongoSanitize=require('express-mongo-sanitize');
 const xss=require('xss-clean');
 const hpp=require('hpp');
 const cookieParser=require("cookie-parser");
+const compression=require("compression")
 const limiter = rateLimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
@@ -62,6 +63,7 @@ app.use(hpp({
   'difficulty',
   'price']
 }))
+app.use(compression())
 app.use((req, resp, next) => {
   next();
 });

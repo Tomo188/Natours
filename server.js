@@ -19,7 +19,7 @@ mongoose
   .then(() => ('connected to db'))
   .catch(() => console.log('not connected'));
 const app = require('./app');
-const port = 3000;
+const port = process.env.PORT||3000;
 const server=app.listen(port, () => {
   (`app is listening at port: ${port}.`);
 });
