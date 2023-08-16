@@ -19,6 +19,7 @@ export const signUp=async function(name,email,password){
 }
    }
    catch(err){
+    console.log(err)
     showAlert('error', err.response.data.message);
    }
 }
