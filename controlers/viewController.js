@@ -69,3 +69,7 @@ exports.submitUserData=catchAsync(async(req,resp,next)=>{
   })
   }
   )
+  exports.signup=catchAsync(async(req,resp,next)=>{
+    sendResponseRender(resp,"sign_up",
+    {title:"signup"})
+  })

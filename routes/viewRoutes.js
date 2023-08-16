@@ -9,5 +9,6 @@ router.get('/tour/:slug',authControler.isLoggedIn, viewController.getTour);
 router.get('/login',authControler.isLoggedIn,viewController.login);
 router.get("/account",authControler.protect,viewController.account)
 router.get("/my-tours",authControler.protect,viewController.getMyTours)
+router.get("/signup",viewController.signup)
 router.post("/submit-user-data",authControler.protect,viewController.submitUserData)
 module.exports = router;
