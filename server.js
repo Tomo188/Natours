@@ -30,3 +30,9 @@ process.on('unhandledRejection', err => {
     process.exit(1);
   });
 });
+process.on("SIGTERM",()=>{
+  console.log("Sigterm signal recived application shuting down")
+  server.close(()=>{
+    console.l("application terminated ")
+  })
+})

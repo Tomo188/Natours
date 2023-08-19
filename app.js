@@ -11,14 +11,21 @@ const xss=require('xss-clean');
 const hpp=require('hpp');
 const cookieParser=require("cookie-parser");
 const compression=require("compression")
+const cors=require("cors")
+const bookingController=require("./controlers/bookingController")
 const limiter = rateLimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
   message: 'to many requests from this ip adress, please try again later!!!',
 });
+// trust proxy
+app.enable("trust proxy")
 // use pug template
 app.set("view engine","pug")
 app.set("views",path.join(__dirname,"views"))
+// cors
+app.use(cors())
+app.options("*",cors())
 // http security headers
 const scriptSrcUrls = ["https://unpkg.com/", "https://tile.openstreetmap.org","https://cdnjs.cloudflare.com/"]
 const styleSrcUrls = [
@@ -45,6 +52,8 @@ app.use(
 );
 // request limit
 app.use('/api', limiter);
+// stripe checkout
+app.post("webhook-checkout",express.raw({type:"application/json"}),bookingController.webhookCheckout)
 // body parser reading data
 app.use(express.json({limit:"10kb"}));
 app.use(express.urlencoded({extended:true,limit:"10kb"}))
