@@ -9,6 +9,7 @@ exports.alerts=(req,resp,next)=>{
   if(alert==="booking"){
     resp.locals.alert="Your booking was successefull. Please check your email for confirmation."
   }
+  next()
 }
 exports.base = catchAsync(async (req, resp, next) => {
   const tours = await Tour.find();
