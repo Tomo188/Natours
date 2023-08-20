@@ -33,6 +33,6 @@ process.on('unhandledRejection', err => {
 process.on("SIGTERM",()=>{
   console.log("Sigterm signal recived application shuting down")
   server.close(()=>{
-    console.l("application terminated ")
+    console.log("application terminated ")
   })
 })
