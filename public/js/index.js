@@ -12,7 +12,7 @@ const logOutBtn=document.querySelector(".nav__el--logout")
 const  userDataForm=document.querySelector(".form-user-data")
 const newPasswordData=document.querySelector(".form-user-password")
 const bookBtn=document.getElementById("book-tour")
-const alertMesssage=documnet.querySelector("body").dataset.alert
+const alertMesssage=document.querySelector("body").dataset.alert
 if(form) {
 form.addEventListener("submit",function(e){
     e.preventDefault();
