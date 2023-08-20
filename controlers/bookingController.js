@@ -51,7 +51,8 @@ exports.webhookCheckout=(req,resp,next)=>{
   catch(err){
     return resp.status(400).send(`Webhook error: ${err.message}`)
   }
-   if(event.type==="checkout.session.complete"){
+   console.log(event)
+   if(event.type==="checkout.session.completed"){
       createBooking(event.data.object)
       resp.status(200).json({
         recived:true
