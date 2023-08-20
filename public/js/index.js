@@ -3,6 +3,8 @@ import {login,logOut} from "./login"
 import {signUp} from "./signUp"
 import { updateAccount } from "./updateSettings"
 import { bookTour } from "./stripe"
+import { showAlert } from "./alert"
+import { Alert } from "bootstrap"
 
 const form=document.querySelector(".form--login")
 const formSignup=document.querySelector(".form--sign-up")
@@ -10,6 +12,7 @@ const logOutBtn=document.querySelector(".nav__el--logout")
 const  userDataForm=document.querySelector(".form-user-data")
 const newPasswordData=document.querySelector(".form-user-password")
 const bookBtn=document.getElementById("book-tour")
+const alertMesssage=documnet.querySelector("body").dataset.alert
 if(form) {
 form.addEventListener("submit",function(e){
     e.preventDefault();
@@ -63,3 +66,6 @@ if(bookBtn)
     bookTour(tourId)
  })
 
+if(alertMesssage){
+    showAlert("success",alertMesssage)
+}

@@ -4,7 +4,12 @@ const User=require("../models/user_models");
 const Bookings=require("../models/booking_models")
 const catchAsync = require('../util/catchAsync');
 const AppError=require("../util/appError")
-
+exports.alerts=(req,resp,next)=>{
+  const {alert}=req.query
+  if(alert==="booking"){
+    resp.locals.alert="Your booking was successefull. Please check your email for confirmation."
+  }
+}
 exports.base = catchAsync(async (req, resp, next) => {
   const tours = await Tour.find();
   sendResponseRender(resp, '', {
@@ -31,6 +36,11 @@ exports.getMyTours=async(req,resp,next)=>{
   const bookings=await Bookings.find({user:req.user.id})
   const myBooking=bookings.map(el=>el.tour)
   const tours=await Tour.find({_id:{$in:myBooking}})
+  // if(req.params.alert){
+  //   return sendResponseRender(resp,"overview",{
+  //     title,tours,alert:"Thak you for purchase tour"
+  //   })
+  // }
   sendResponseRender(resp, 'overview', {
     title: 'your tours',
     tours,
